@@ -3,32 +3,21 @@ using namespace std;
 #define ll long long
 
 int main(){
-    int t;
+    int t; string a;
     cin >> t;
-
-    vector<char>v;
-
-
-    int a;
-    string b;
     while(t--){
-        int result = 0;
-        cin >> a >> b;
-        for(int i = 0; i < b.length(); i++){
-            bool flag = false;
-            for(char x : v) {
-                if(x == b[i]){
-                    flag = true;
+        bool flag = true;
+        cin >> a;
+        if( a.length() % 2 != 0 ) cout << "NO" << endl;
+        else{
+            for(int j = 0; j < a.length()/2; j++){
+                if(a[j] != a[j+a.length()/2]){
+                    flag = false;
                     break;
                 }
             }
-            if(!flag){ v.push_back(b[i]); }
-            
-            if(flag){result++;}
-            else{result+=2;}
+            if(flag == false){ cout << "NO" << endl; }
+            else{ cout << "YES" << endl; }
         }
-        cout << result << endl;
-        v.clear();
-
     }
 }
