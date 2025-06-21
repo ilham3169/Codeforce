@@ -3,16 +3,20 @@ using namespace std;
 #define ll long long
 
 int main(){
-    int k;
-    cin >> k;
+    int t;
+    cin >> t; 
+    vector<int>v;
 
-    int a,b,c;
-    int result = 0;
+    int a,b,k;
 
-    while(k--){
-        cin >> a >> b >> c;
-        if(a+b+c >= 2) result++;    
+    while(t--){
+        bool flag = false;
+        cin >> a >> b;
+        while(a--){
+            cin >> k;
+            if(k == b) flag = true;
+        }
+        if(flag) cout << "YES" << endl;
+        else cout << "NO" << endl;
     }
-
-    cout << result << endl;
 }
