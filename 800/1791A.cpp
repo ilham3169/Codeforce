@@ -2,26 +2,18 @@
 using namespace std;
 
 int main() {
-    int t, l;
-    string a;
-    cin >> t;
+    int k;
+    cin >> k;
 
-    while (t--) {
-        cin >> l >> a;
-        int k = 0, f = 1, o = 0;
-        while (true) {
-            if (a[k] == '1' && a[l - f] == '0') {
-                k++; f++; o++;
-            }
-            else if (a[k] == '0' && a[l - f] == '1') {
-                k++; f++; o++;
-            }
-            else {
-                if( l - o*2 <= 0) { cout << 0 << endl; break;}
-                cout << l - o * 2 << endl;
-                break;
-            }
-        }
+    int bricks = 1;
+    int level = 1;
+    int total_b = 1;
+    while(true){
+        level++;
+        bricks = bricks + level;
+        total_b += bricks;
+        if(total_b > k){ cout << level-1; break; }
+
     }
     return 0;
 }
