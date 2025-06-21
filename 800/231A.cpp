@@ -4,19 +4,31 @@ using namespace std;
 
 int main(){
     int t;
-    cin >> t; 
-    vector<int>v;
+    cin >> t;
 
-    int a,b,k;
+    vector<char>v;
 
+
+    int a;
+    string b;
     while(t--){
-        bool flag = false;
+        int result = 0;
         cin >> a >> b;
-        while(a--){
-            cin >> k;
-            if(k == b) flag = true;
+        for(int i = 0; i < b.length(); i++){
+            bool flag = false;
+            for(char x : v) {
+                if(x == b[i]){
+                    flag = true;
+                    break;
+                }
+            }
+            if(!flag){ v.push_back(b[i]); }
+            
+            if(flag){result++;}
+            else{result+=2;}
         }
-        if(flag) cout << "YES" << endl;
-        else cout << "NO" << endl;
+        cout << result << endl;
+        v.clear();
+
     }
 }
