@@ -26,33 +26,64 @@ using namespace std;
 //     }
 // }
 
-int main(){
+// int main(){
+//     int t;
+//     vector<int>v;
+//     cin >> t;
+//     while(t--){
+//         int a,b;
+//         cin >> a;
+//         for(int i = 0; i < a; i++){
+//             cin >> b;
+//             v.push_back(b);
+//         }
+
+//         int maxx = 0;
+//         int total = 0;
+//         for(int x : v){
+//             if(x == 0){
+//                 total++;
+//             }
+//             else{
+//                 if(total > maxx){
+//                     maxx = total;
+//                     total = 0;
+//                 }
+//             }
+//         }
+//         if(total > maxx) maxx = total; total = 0;
+//         cout << maxx << endl;
+//         v.clear();
+//     }
+// }
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
     int t;
-    vector<int>v;
+    vector<int> v;
     cin >> t;
-    while(t--){
-        int a,b;
+    while (t--) {
+        int a, b;
         cin >> a;
-        for(int i = 0; i < a; i++){
+        for (int i = 0; i < a; i++) {
             cin >> b;
             v.push_back(b);
         }
 
-        int maxx = 0;
-        int total = 0;
-        for(int x : v){
-            if(x == 0){
+        int maxx = 0, total = 0;
+        for (int x : v) {
+            if (x == 0) {
                 total++;
-            }
-            else{
-                if(total > maxx){
-                    maxx = total;
-                    total = 0;
-                }
+            } else {
+                maxx = max(maxx, total);
+                total = 0;
             }
         }
-        if(total > maxx) maxx = total;
+        maxx = max(maxx, total);
         cout << maxx << endl;
         v.clear();
     }
+    return 0;
 }
